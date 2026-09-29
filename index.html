@@ -1,178 +1,197 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aracım - Araç İlan Platformu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aracım - Araç İlan Platformu</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background: #f4f6f8;
-      color: #172033;
-    }
+body {
+  background: #f4f6f8;
+  color: #172033;
+}
 
-    header {
-      background: #0b1f3a;
-      color: white;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background: #0b1f3a;
+  color: white;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    .login {
-      background: white;
-      color: #0b1f3a;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.login {
+  background: white;
+  color: #0b1f3a;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #0b1f3a, #174b80);
-      color: white;
-      padding: 70px 7%;
-      text-align: center;
-    }
+.hero {
+  background: linear-gradient(135deg, #0b1f3a, #174b80);
+  color: white;
+  padding: 65px 7%;
+  text-align: center;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 35px;
-    }
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
 
-    .search-box {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
+.search-box {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
 
-    select, input {
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-      width: 100%;
-    }
+select,
+input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+}
 
-    .search-button {
-      background: #0b1f3a;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.search-button {
+  background: #0b1f3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .section {
-      padding: 50px 7%;
-    }
+.search-button:hover {
+  opacity: .9;
+}
 
-    .section h2 {
-      margin-bottom: 25px;
-      font-size: 28px;
-    }
+.section {
+  padding: 50px 7%;
+}
 
-    .brands {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.section h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+}
 
-    .brand {
-      background: white;
-      padding: 15px 24px;
-      border-radius: 10px;
-      border: 1px solid #e2e5e9;
-      cursor: pointer;
-    }
+.brands {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-    .cars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+.brand {
+  background: white;
+  padding: 15px 24px;
+  border-radius: 10px;
+  border: 1px solid #e2e5e9;
+  cursor: pointer;
+}
 
-    .car {
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-    }
+.brand:hover {
+  background: #e9eef5;
+}
 
-    .car-image {
-      height: 190px;
-      background: #dfe5eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 55px;
-    }
+.cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
-    .car-info {
-      padding: 18px;
-    }
+.car {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,.07);
+}
 
-    .car-info h3 {
-      margin-bottom: 10px;
-    }
+.car-image {
+  height: 190px;
+  background: #dfe5eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 55px;
+}
 
-    .details {
-      color: #687386;
-      margin-bottom: 15px;
-    }
+.car-info {
+  padding: 18px;
+}
 
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #0b1f3a;
-    }
+.car-info h3 {
+  margin-bottom: 10px;
+}
 
-    footer {
-      background: #0b1f3a;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 30px;
-    }
+.details {
+  color: #687386;
+  margin-bottom: 15px;
+}
 
-    @media (max-width: 800px) {
-      .search-box {
-        grid-template-columns: 1fr;
-      }
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0b1f3a;
+}
 
-      .cars {
-        grid-template-columns: 1fr;
-      }
+.no-results {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
 
-      .hero h1 {
-        font-size: 30px;
-      }
-    }
-  </style>
+footer {
+  background: #0b1f3a;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+@media (max-width: 800px) {
+  .search-box {
+    grid-template-columns: 1fr;
+  }
+
+  .cars {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -183,107 +202,254 @@
 </header>
 
 <section class="hero">
-  <h1>Hayalindeki Aracı Bul</h1>
-  <p>Türkiye'nin yeni nesil araç ilan platformu</p>
 
-  <div class="search-box">
-    <select>
-      <option>Marka</option>
-      <option>BMW</option>
-      <option>Mercedes-Benz</option>
-      <option>Volkswagen</option>
-      <option>Toyota</option>
-      <option>Renault</option>
-      <option>Peugeot</option>
-    </select>
+<h1>Hayalindeki Aracı Bul</h1>
 
-    <select>
-      <option>Model</option>
-    </select>
+<p>Türkiye'nin yeni nesil araç ilan platformu</p>
 
-    <input type="number" placeholder="Min. Fiyat">
+<div class="search-box">
 
-    <input type="number" placeholder="Max. Fiyat">
+<select id="brand">
+<option value="">Marka</option>
+<option value="BMW">BMW</option>
+<option value="Mercedes">Mercedes-Benz</option>
+<option value="Volkswagen">Volkswagen</option>
+<option value="Toyota">Toyota</option>
+<option value="Renault">Renault</option>
+<option value="Peugeot">Peugeot</option>
+<option value="Kia">Kia</option>
+<option value="TOGG">TOGG</option>
+</select>
 
-    <select>
-      <option>Yakıt</option>
-      <option>Benzin</option>
-      <option>Dizel</option>
-      <option>Hibrit</option>
-      <option>Elektrik</option>
-    </select>
+<select id="model">
+<option value="">Model</option>
+<option value="3 Serisi">3 Serisi</option>
+<option value="Corolla">Corolla</option>
+<option value="Austral">Austral</option>
+<option value="T10X">T10X</option>
+<option value="Sportage">Sportage</option>
+</select>
 
-    <select>
-      <option>Vites</option>
-      <option>Otomatik</option>
-      <option>Manuel</option>
-    </select>
+<input id="minPrice" type="number" placeholder="Min. Fiyat">
 
-    <select>
-      <option>Şehir</option>
-      <option>İstanbul</option>
-      <option>Ankara</option>
-      <option>İzmir</option>
-      <option>Düzce</option>
-    </select>
+<input id="maxPrice" type="number" placeholder="Max. Fiyat">
 
-    <button class="search-button">ARA</button>
-  </div>
+<select id="fuel">
+<option value="">Yakıt</option>
+<option value="Benzin">Benzin</option>
+<option value="Dizel">Dizel</option>
+<option value="Hibrit">Hibrit</option>
+<option value="Elektrik">Elektrik</option>
+</select>
+
+<select id="transmission">
+<option value="">Vites</option>
+<option value="Otomatik">Otomatik</option>
+<option value="Manuel">Manuel</option>
+</select>
+
+<select id="city">
+<option value="">Şehir</option>
+<option value="İstanbul">İstanbul</option>
+<option value="Ankara">Ankara</option>
+<option value="İzmir">İzmir</option>
+<option value="Düzce">Düzce</option>
+</select>
+
+<button class="search-button" onclick="searchCars()">ARA</button>
+
+</div>
 </section>
 
 <section class="section">
-  <h2>Popüler Markalar</h2>
 
-  <div class="brands">
-    <div class="brand">BMW</div>
-    <div class="brand">Mercedes-Benz</div>
-    <div class="brand">Volkswagen</div>
-    <div class="brand">Toyota</div>
-    <div class="brand">Renault</div>
-    <div class="brand">Peugeot</div>
-    <div class="brand">Kia</div>
-    <div class="brand">TOGG</div>
-  </div>
+<h2>Popüler Markalar</h2>
+
+<div class="brands">
+
+<div class="brand" onclick="selectBrand('BMW')">BMW</div>
+<div class="brand" onclick="selectBrand('Mercedes')">Mercedes-Benz</div>
+<div class="brand" onclick="selectBrand('Volkswagen')">Volkswagen</div>
+<div class="brand" onclick="selectBrand('Toyota')">Toyota</div>
+<div class="brand" onclick="selectBrand('Renault')">Renault</div>
+<div class="brand" onclick="selectBrand('Peugeot')">Peugeot</div>
+<div class="brand" onclick="selectBrand('Kia')">Kia</div>
+<div class="brand" onclick="selectBrand('TOGG')">TOGG</div>
+
+</div>
+
 </section>
 
 <section class="section">
-  <h2>Öne Çıkan İlanlar</h2>
 
-  <div class="cars">
+<h2>Öne Çıkan İlanlar</h2>
 
-    <div class="car">
-      <div class="car-image">🚘</div>
-      <div class="car-info">
-        <h3>2024 BMW 3 Serisi</h3>
-        <div class="details">2024 • 35.000 km • Otomatik</div>
-        <div class="price">2.450.000 TL</div>
-      </div>
-    </div>
+<div id="cars" class="cars">
 
-    <div class="car">
-      <div class="car-image">🚙</div>
-      <div class="car-info">
-        <h3>2025 Toyota Corolla</h3>
-        <div class="details">2025 • 12.000 km • Hibrit</div>
-        <div class="price">1.950.000 TL</div>
-      </div>
-    </div>
+<div class="car"
+data-brand="BMW"
+data-model="3 Serisi"
+data-price="2450000"
+data-fuel="Benzin"
+data-transmission="Otomatik"
+data-city="İstanbul">
 
-    <div class="car">
-      <div class="car-image">🚗</div>
-      <div class="car-info">
-        <h3>2025 Renault Austral</h3>
-        <div class="details">2025 • 8.500 km • Otomatik</div>
-        <div class="price">2.250.000 TL</div>
-      </div>
-    </div>
+<div class="car-image">🚘</div>
 
-  </div>
+<div class="car-info">
+<h3>2024 BMW 3 Serisi</h3>
+<div class="details">2024 • 35.000 km • Otomatik • İstanbul</div>
+<div class="price">2.450.000 TL</div>
+</div>
+
+</div>
+
+<div class="car"
+data-brand="Toyota"
+data-model="Corolla"
+data-price="1950000"
+data-fuel="Hibrit"
+data-transmission="Otomatik"
+data-city="Ankara">
+
+<div class="car-image">🚙</div>
+
+<div class="car-info">
+<h3>2025 Toyota Corolla</h3>
+<div class="details">2025 • 12.000 km • Hibrit • Ankara</div>
+<div class="price">1.950.000 TL</div>
+</div>
+
+</div>
+
+<div class="car"
+data-brand="Renault"
+data-model="Austral"
+data-price="2250000"
+data-fuel="Hibrit"
+data-transmission="Otomatik"
+data-city="İstanbul">
+
+<div class="car-image">🚗</div>
+
+<div class="car-info">
+<h3>2025 Renault Austral</h3>
+<div class="details">2025 • 8.500 km • Hibrit • İstanbul</div>
+<div class="price">2.250.000 TL</div>
+</div>
+
+</div>
+
+<div class="car"
+data-brand="TOGG"
+data-model="T10X"
+data-price="2100000"
+data-fuel="Elektrik"
+data-transmission="Otomatik"
+data-city="Düzce">
+
+<div class="car-image">⚡🚙</div>
+
+<div class="car-info">
+<h3>2025 TOGG T10X</h3>
+<div class="details">2025 • 15.000 km • Elektrik • Düzce</div>
+<div class="price">2.100.000 TL</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="noResults" class="no-results">
+<h3>Aradığın kriterlere uygun araç bulunamadı.</h3>
+<p>Filtreleri değiştirip tekrar deneyebilirsin.</p>
+</div>
+
 </section>
 
 <footer>
-  © 2026 Aracım — Araç İlan Platformu
+© 2026 Aracım — Araç İlan Platformu
 </footer>
+
+<script>
+
+function searchCars() {
+
+const brand = document.getElementById("brand").value;
+const model = document.getElementById("model").value;
+const minPrice = Number(document.getElementById("minPrice").value) || 0;
+const maxPrice = Number(document.getElementById("maxPrice").value) || Infinity;
+const fuel = document.getElementById("fuel").value;
+const transmission = document.getElementById("transmission").value;
+const city = document.getElementById("city").value;
+
+const cars = document.querySelectorAll(".car");
+
+let found = 0;
+
+cars.forEach(car => {
+
+const matchBrand =
+!brand || car.dataset.brand === brand;
+
+const matchModel =
+!model || car.dataset.model === model;
+
+const matchPrice =
+Number(car.dataset.price) >= minPrice &&
+Number(car.dataset.price) <= maxPrice;
+
+const matchFuel =
+!fuel || car.dataset.fuel === fuel;
+
+const matchTransmission =
+!transmission ||
+car.dataset.transmission === transmission;
+
+const matchCity =
+!city || car.dataset.city === city;
+
+if (
+matchBrand &&
+matchModel &&
+matchPrice &&
+matchFuel &&
+matchTransmission &&
+matchCity
+) {
+
+car.style.display = "block";
+found++;
+
+} else {
+
+car.style.display = "none";
+
+}
+
+});
+
+document.getElementById("noResults").style.display =
+found === 0 ? "block" : "none";
+
+document.getElementById("cars").scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+function selectBrand(brand) {
+
+document.getElementById("brand").value = brand;
+
+document.querySelector(".hero").scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+</script>
 
 </body>
 </html>
+```
