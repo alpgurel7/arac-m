@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aracım - Araç Arama Motoru</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,17 +16,20 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    background: #f5f6f8;
     color: #172033;
 }
 
+/* HEADER */
+
 header {
-    background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    padding: 18px 6%;
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e4e6ea;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
 }
 
 .logo {
@@ -33,15 +38,17 @@ header {
     color: #123c78;
 }
 
-.header-right {
-    color: #555;
+.header-text {
     font-size: 14px;
+    color: #777;
 }
+
+/* HERO */
 
 .hero {
     background: linear-gradient(135deg, #123c78, #1769aa);
     color: white;
-    padding: 55px 6% 70px;
+    padding: 55px 20px 85px;
     text-align: center;
 }
 
@@ -55,14 +62,17 @@ header {
     opacity: .9;
 }
 
+/* SEARCH */
+
 .search-box {
+    width: 90%;
+    max-width: 1150px;
+    margin: -45px auto 35px;
     background: white;
-    max-width: 1100px;
-    margin: -35px auto 35px;
-    position: relative;
     border-radius: 14px;
     padding: 25px;
     box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    position: relative;
 }
 
 .filters {
@@ -74,27 +84,28 @@ header {
 .field label {
     display: block;
     font-size: 12px;
-    color: #666;
-    margin-bottom: 6px;
     font-weight: bold;
+    color: #666;
+    margin-bottom: 7px;
 }
 
 .field select,
 .field input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #d5d9df;
+    height: 44px;
+    border: 1px solid #d8dce2;
     border-radius: 8px;
+    padding: 0 12px;
     font-size: 14px;
     background: white;
 }
 
 .search-button {
     width: 100%;
-    margin-top: 18px;
-    padding: 14px;
+    height: 48px;
     border: none;
     border-radius: 8px;
+    margin-top: 18px;
     background: #1769aa;
     color: white;
     font-size: 16px;
@@ -106,13 +117,15 @@ header {
     background: #12558c;
 }
 
+/* CONTENT */
+
 .container {
-    width: 88%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1150px;
     margin: auto;
 }
 
-.result-header {
+.results-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,91 +133,142 @@ header {
 }
 
 .result-count {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
 }
 
+.result-count span {
+    color: #1769aa;
+}
+
 .sort {
-    padding: 9px 12px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #d8dce2;
+    border-radius: 8px;
     background: white;
 }
 
+/* CARDS */
+
 .car-list {
-    display: grid;
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
 
 .car {
     background: white;
-    border: 1px solid #e0e3e7;
+    border: 1px solid #e1e4e8;
     border-radius: 12px;
-    padding: 20px;
+    padding: 18px;
     display: grid;
-    grid-template-columns: 180px 1fr auto;
+    grid-template-columns: 150px 1fr 190px;
     gap: 20px;
     align-items: center;
+    transition: .2s;
+}
+
+.car:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    transform: translateY(-1px);
 }
 
 .car-image {
-    height: 120px;
+    height: 105px;
     border-radius: 9px;
-    background: linear-gradient(135deg, #dce3eb, #f4f6f8);
+    background: linear-gradient(135deg,#e3e8ee,#f6f7f9);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
+    font-size: 43px;
 }
 
 .car h3 {
+    font-size: 18px;
     margin-bottom: 8px;
-    font-size: 20px;
 }
 
-.car-info {
-    color: #667085;
+.details {
+    color: #687386;
     font-size: 14px;
     line-height: 1.8;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #123c78;
-    margin-bottom: 8px;
+.sources {
+    margin-top: 7px;
 }
 
 .source {
-    font-size: 12px;
+    display: inline-block;
+    padding: 5px 8px;
+    margin-right: 4px;
+    border-radius: 5px;
     background: #eef4ff;
     color: #1769aa;
-    padding: 6px 9px;
-    border-radius: 6px;
-    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
 }
 
-.view-button {
+.car-price {
+    text-align: right;
+}
+
+.price {
+    font-size: 21px;
+    font-weight: bold;
+    color: #123c78;
+}
+
+.price-info {
+    color: #777;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.view {
     display: inline-block;
-    margin-top: 12px;
-    padding: 10px 15px;
+    margin-top: 10px;
     background: #1769aa;
     color: white;
     text-decoration: none;
+    padding: 9px 14px;
     border-radius: 7px;
     font-size: 13px;
 }
 
 .empty {
-    background: white;
-    padding: 40px;
-    text-align: center;
-    border-radius: 12px;
-    color: #777;
     display: none;
+    background: white;
+    border-radius: 12px;
+    padding: 50px;
+    text-align: center;
+    color: #777;
 }
 
-@media(max-width: 800px) {
+/* INFO */
+
+.info {
+    margin: 35px 0 60px;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.info h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.info p {
+    color: #687386;
+    line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+
     .filters {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -215,16 +279,19 @@ header {
 
     .car-price {
         grid-column: 2;
+        text-align: left;
     }
+
 }
 
-@media(max-width: 500px) {
-    .filters {
-        grid-template-columns: 1fr;
-    }
+@media(max-width: 550px) {
 
     .hero h1 {
         font-size: 28px;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
     }
 
     .car {
@@ -234,21 +301,35 @@ header {
     .car-price {
         grid-column: 1;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <div class="logo">🚗 Aracım</div>
-    <div class="header-right">Türkiye'nin Araç Arama Motoru</div>
+
+    <div class="header-text">
+        Türkiye'nin Araç Arama Motoru
+    </div>
+
 </header>
 
+
 <section class="hero">
+
     <h1>Hayalindeki Aracı Tek Yerde Bul</h1>
-    <p>Farklı araç platformlarındaki ilanları tek aramada keşfet.</p>
+
+    <p>
+        Farklı araç platformlarındaki ilanları tek aramada karşılaştır.
+    </p>
+
 </section>
+
 
 <div class="search-box">
 
@@ -256,8 +337,11 @@ header {
 
         <div class="field">
             <label>MARKA</label>
+
             <select id="brand">
+
                 <option value="">Tüm Markalar</option>
+
                 <option>BMW</option>
                 <option>Mercedes-Benz</option>
                 <option>Volkswagen</option>
@@ -266,268 +350,554 @@ header {
                 <option>Peugeot</option>
                 <option>Kia</option>
                 <option>TOGG</option>
+
             </select>
+
         </div>
 
+
         <div class="field">
+
             <label>MODEL</label>
+
             <select id="model">
+
                 <option value="">Tüm Modeller</option>
+
                 <option>3 Serisi</option>
                 <option>Corolla</option>
                 <option>Austral</option>
                 <option>T10X</option>
                 <option>Sportage</option>
+
             </select>
+
         </div>
 
+
         <div class="field">
+
             <label>MİNİMUM FİYAT</label>
-            <input type="number" id="minPrice" placeholder="Örn. 1000000">
+
+            <input
+                type="number"
+                id="minPrice"
+                placeholder="Örn. 1500000"
+            >
+
         </div>
 
+
         <div class="field">
+
             <label>MAKSİMUM FİYAT</label>
-            <input type="number" id="maxPrice" placeholder="Örn. 2500000">
+
+            <input
+                type="number"
+                id="maxPrice"
+                placeholder="Örn. 2500000"
+            >
+
         </div>
 
+
         <div class="field">
+
             <label>YIL</label>
+
             <select id="year">
+
                 <option value="">Tüm Yıllar</option>
+
                 <option>2026</option>
                 <option>2025</option>
                 <option>2024</option>
                 <option>2023</option>
                 <option>2022</option>
+
             </select>
+
         </div>
 
+
         <div class="field">
+
             <label>YAKIT</label>
+
             <select id="fuel">
+
                 <option value="">Tümü</option>
+
                 <option>Benzin</option>
                 <option>Dizel</option>
                 <option>Hibrit</option>
                 <option>Elektrik</option>
+
             </select>
+
         </div>
 
+
         <div class="field">
+
             <label>VİTES</label>
+
             <select id="transmission">
+
                 <option value="">Tümü</option>
+
                 <option>Otomatik</option>
                 <option>Manuel</option>
+
             </select>
+
         </div>
 
+
         <div class="field">
+
             <label>ŞEHİR</label>
+
             <select id="city">
+
                 <option value="">Tüm Şehirler</option>
+
                 <option>İstanbul</option>
                 <option>Ankara</option>
                 <option>İzmir</option>
                 <option>Düzce</option>
                 <option>Bursa</option>
                 <option>Antalya</option>
+
             </select>
+
         </div>
 
     </div>
 
-    <button class="search-button" onclick="searchCars()">
+
+    <button
+        class="search-button"
+        onclick="searchCars()"
+    >
+
         🔎 ARAÇLARI ARA
+
     </button>
 
 </div>
 
+
 <div class="container">
 
-    <div class="result-header">
+
+    <div class="results-top">
+
         <div class="result-count">
-            <span id="resultCount">5</span> araç bulundu
+
+            <span id="resultCount">6</span>
+            uygun ilan bulundu
+
         </div>
 
-        <select class="sort" onchange="sortCars(this.value)">
-            <option value="default">Sıralama</option>
-            <option value="cheap">En düşük fiyat</option>
-            <option value="expensive">En yüksek fiyat</option>
-            <option value="new">En yeni</option>
+
+        <select
+            class="sort"
+            onchange="sortCars(this.value)"
+        >
+
+            <option value="default">
+                Önerilen sıralama
+            </option>
+
+            <option value="cheap">
+                En düşük fiyat
+            </option>
+
+            <option value="expensive">
+                En yüksek fiyat
+            </option>
+
+            <option value="new">
+                En yeni
+            </option>
+
         </select>
+
     </div>
 
-    <div class="car-list" id="carList">
 
-        <div class="car"
-             data-brand="BMW"
-             data-model="3 Serisi"
-             data-price="2450000"
-             data-year="2024"
-             data-fuel="Benzin"
-             data-transmission="Otomatik"
-             data-city="İstanbul">
+    <div
+        class="car-list"
+        id="carList"
+    >
 
-            <div class="car-image">🚘</div>
+
+        <!-- BMW -->
+
+        <div
+            class="car"
+            data-brand="BMW"
+            data-model="3 Serisi"
+            data-price="2390000"
+            data-year="2024"
+            data-fuel="Benzin"
+            data-transmission="Otomatik"
+            data-city="İstanbul"
+        >
+
+            <div class="car-image">
+                🚘
+            </div>
 
             <div>
-                <h3>BMW 320i M Sport</h3>
 
-                <div class="car-info">
-                    2024 • 35.000 km • Benzin • Otomatik • İstanbul
+                <h3>
+                    BMW 320i M Sport
+                </h3>
+
+                <div class="details">
+                    2024 • 28.000 km • Benzin • Otomatik • İstanbul
                 </div>
 
-                <span class="source">Sahibinden</span>
-                <span class="source">Arabam</span>
+                <div class="sources">
 
-                <br>
+                    <span class="source">
+                        Arabam
+                    </span>
 
-                <a href="#" class="view-button">İlanı İncele</a>
+                </div>
+
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
+
             </div>
 
             <div class="car-price">
-                <div class="price">2.450.000 TL</div>
+
+                <div class="price">
+                    2.390.000 TL
+                </div>
+
+                <div class="price-info">
+                    Arabam
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="car"
-             data-brand="Toyota"
-             data-model="Corolla"
-             data-price="1950000"
-             data-year="2025"
-             data-fuel="Hibrit"
-             data-transmission="Otomatik"
-             data-city="Ankara">
+        <div
+            class="car"
+            data-brand="BMW"
+            data-model="3 Serisi"
+            data-price="2420000"
+            data-year="2024"
+            data-fuel="Benzin"
+            data-transmission="Otomatik"
+            data-city="İstanbul"
+        >
 
-            <div class="car-image">🚗</div>
+            <div class="car-image">
+                🚘
+            </div>
 
             <div>
-                <h3>Toyota Corolla Hybrid</h3>
 
-                <div class="car-info">
+                <h3>
+                    BMW 320i M Sport
+                </h3>
+
+                <div class="details">
+                    2024 • 31.000 km • Benzin • Otomatik • İstanbul
+                </div>
+
+                <div class="sources">
+
+                    <span class="source">
+                        Sahibinden
+                    </span>
+
+                </div>
+
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
+
+            </div>
+
+            <div class="car-price">
+
+                <div class="price">
+                    2.420.000 TL
+                </div>
+
+                <div class="price-info">
+                    Sahibinden
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOYOTA -->
+
+        <div
+            class="car"
+            data-brand="Toyota"
+            data-model="Corolla"
+            data-price="1890000"
+            data-year="2025"
+            data-fuel="Hibrit"
+            data-transmission="Otomatik"
+            data-city="Ankara"
+        >
+
+            <div class="car-image">
+                🚗
+            </div>
+
+            <div>
+
+                <h3>
+                    Toyota Corolla Hybrid
+                </h3>
+
+                <div class="details">
                     2025 • 12.000 km • Hibrit • Otomatik • Ankara
                 </div>
 
-                <span class="source">Arabam</span>
-                <span class="source">Otoshops</span>
+                <div class="sources">
 
-                <br>
+                    <span class="source">
+                        Arabam
+                    </span>
 
-                <a href="#" class="view-button">İlanı İncele</a>
+                </div>
+
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
+
             </div>
 
             <div class="car-price">
-                <div class="price">1.950.000 TL</div>
+
+                <div class="price">
+                    1.890.000 TL
+                </div>
+
+                <div class="price-info">
+                    Arabam
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="car"
-             data-brand="Renault"
-             data-model="Austral"
-             data-price="2250000"
-             data-year="2025"
-             data-fuel="Hibrit"
-             data-transmission="Otomatik"
-             data-city="İstanbul">
+        <div
+            class="car"
+            data-brand="Toyota"
+            data-model="Corolla"
+            data-price="1950000"
+            data-year="2025"
+            data-fuel="Hibrit"
+            data-transmission="Otomatik"
+            data-city="Ankara"
+        >
 
-            <div class="car-image">🚙</div>
+            <div class="car-image">
+                🚗
+            </div>
 
             <div>
-                <h3>Renault Austral E-Tech</h3>
 
-                <div class="car-info">
+                <h3>
+                    Toyota Corolla Hybrid
+                </h3>
+
+                <div class="details">
+                    2025 • 14.000 km • Hibrit • Otomatik • Ankara
+                </div>
+
+                <div class="sources">
+
+                    <span class="source">
+                        Sahibinden
+                    </span>
+
+                </div>
+
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
+
+            </div>
+
+            <div class="car-price">
+
+                <div class="price">
+                    1.950.000 TL
+                </div>
+
+                <div class="price-info">
+                    Sahibinden
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RENAULT -->
+
+        <div
+            class="car"
+            data-brand="Renault"
+            data-model="Austral"
+            data-price="2250000"
+            data-year="2025"
+            data-fuel="Hibrit"
+            data-transmission="Otomatik"
+            data-city="İstanbul"
+        >
+
+            <div class="car-image">
+                🚙
+            </div>
+
+            <div>
+
+                <h3>
+                    Renault Austral E-Tech
+                </h3>
+
+                <div class="details">
                     2025 • 8.500 km • Hibrit • Otomatik • İstanbul
                 </div>
 
-                <span class="source">Sahibinden</span>
-                <span class="source">Arabam</span>
+                <div class="sources">
 
-                <br>
+                    <span class="source">
+                        Sahibinden
+                    </span>
 
-                <a href="#" class="view-button">İlanı İncele</a>
+                </div>
+
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
+
             </div>
 
             <div class="car-price">
-                <div class="price">2.250.000 TL</div>
+
+                <div class="price">
+                    2.250.000 TL
+                </div>
+
+                <div class="price-info">
+                    Sahibinden
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="car"
-             data-brand="TOGG"
-             data-model="T10X"
-             data-price="2100000"
-             data-year="2025"
-             data-fuel="Elektrik"
-             data-transmission="Otomatik"
-             data-city="Düzce">
+        <!-- TOGG -->
 
-            <div class="car-image">⚡</div>
+        <div
+            class="car"
+            data-brand="TOGG"
+            data-model="T10X"
+            data-price="2100000"
+            data-year="2025"
+            data-fuel="Elektrik"
+            data-transmission="Otomatik"
+            data-city="Düzce"
+        >
+
+            <div class="car-image">
+                ⚡
+            </div>
 
             <div>
-                <h3>TOGG T10X</h3>
 
-                <div class="car-info">
+                <h3>
+                    TOGG T10X
+                </h3>
+
+                <div class="details">
                     2025 • 15.000 km • Elektrik • Otomatik • Düzce
                 </div>
 
-                <span class="source">Sahibinden</span>
+                <div class="sources">
 
-                <br>
+                    <span class="source">
+                        Sahibinden
+                    </span>
 
-                <a href="#" class="view-button">İlanı İncele</a>
-            </div>
-
-            <div class="car-price">
-                <div class="price">2.100.000 TL</div>
-            </div>
-
-        </div>
-
-
-        <div class="car"
-             data-brand="Kia"
-             data-model="Sportage"
-             data-price="2390000"
-             data-year="2025"
-             data-fuel="Hibrit"
-             data-transmission="Otomatik"
-             data-city="Bursa">
-
-            <div class="car-image">🚙</div>
-
-            <div>
-                <h3>Kia Sportage Hybrid</h3>
-
-                <div class="car-info">
-                    2025 • 9.000 km • Hibrit • Otomatik • Bursa
                 </div>
 
-                <span class="source">Arabam</span>
-                <span class="source">Sahibinden</span>
+                <a href="#" class="view">
+                    İlana Git →
+                </a>
 
-                <br>
-
-                <a href="#" class="view-button">İlanı İncele</a>
             </div>
 
             <div class="car-price">
-                <div class="price">2.390.000 TL</div>
+
+                <div class="price">
+                    2.100.000 TL
+                </div>
+
+                <div class="price-info">
+                    Sahibinden
+                </div>
+
             </div>
 
         </div>
+
 
     </div>
 
-    <div class="empty" id="empty">
-        Aradığın kriterlere uygun araç bulunamadı.
+
+    <div
+        class="empty"
+        id="empty"
+    >
+
+        <h3>
+            😕 Uygun ilan bulunamadı
+        </h3>
+
+        <p style="margin-top:8px;">
+            Filtrelerini değiştirip tekrar deneyebilirsin.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>
+            🚗 Aracım nasıl çalışır?
+        </h2>
+
+        <p>
+            Aracım, farklı araç platformlarındaki ilanları
+            tek bir yerde arayıp karşılaştırmayı amaçlayan
+            bir araç arama motorudur. Böylece kullanıcıların
+            farklı siteleri tek tek kontrol etmek yerine
+            aradıkları aracı tek ekrandan keşfetmeleri hedeflenir.
+        </p>
+
     </div>
 
 </div>
@@ -535,81 +905,160 @@ header {
 
 <script>
 
+
 function searchCars() {
 
-    const brand = document.getElementById("brand").value;
-    const model = document.getElementById("model").value;
-    const minPrice = Number(document.getElementById("minPrice").value) || 0;
-    const maxPrice = Number(document.getElementById("maxPrice").value) || Infinity;
-    const year = document.getElementById("year").value;
-    const fuel = document.getElementById("fuel").value;
-    const transmission = document.getElementById("transmission").value;
-    const city = document.getElementById("city").value;
+    const brand =
+        document.getElementById("brand").value;
 
-    const cars = document.querySelectorAll(".car");
+    const model =
+        document.getElementById("model").value;
+
+    const minPrice =
+        Number(document.getElementById("minPrice").value) || 0;
+
+    const maxPrice =
+        Number(document.getElementById("maxPrice").value) || Infinity;
+
+    const year =
+        document.getElementById("year").value;
+
+    const fuel =
+        document.getElementById("fuel").value;
+
+    const transmission =
+        document.getElementById("transmission").value;
+
+    const city =
+        document.getElementById("city").value;
+
+
+    const cars =
+        document.querySelectorAll(".car");
+
 
     let count = 0;
 
+
     cars.forEach(car => {
 
-        const matches =
-            (!brand || car.dataset.brand === brand) &&
-            (!model || car.dataset.model === model) &&
-            (Number(car.dataset.price) >= minPrice) &&
-            (Number(car.dataset.price) <= maxPrice) &&
-            (!year || car.dataset.year === year) &&
-            (!fuel || car.dataset.fuel === fuel) &&
-            (!transmission || car.dataset.transmission === transmission) &&
-            (!city || car.dataset.city === city);
+        const price =
+            Number(car.dataset.price);
 
-        if (matches) {
+        const matches =
+
+            (!brand ||
+                car.dataset.brand === brand)
+
+            &&
+
+            (!model ||
+                car.dataset.model === model)
+
+            &&
+
+            price >= minPrice
+
+            &&
+
+            price <= maxPrice
+
+            &&
+
+            (!year ||
+                car.dataset.year === year)
+
+            &&
+
+            (!fuel ||
+                car.dataset.fuel === fuel)
+
+            &&
+
+            (!transmission ||
+                car.dataset.transmission === transmission)
+
+            &&
+
+            (!city ||
+                car.dataset.city === city);
+
+
+        if(matches) {
+
             car.style.display = "grid";
+
             count++;
+
         } else {
+
             car.style.display = "none";
+
         }
 
     });
 
-    document.getElementById("resultCount").textContent = count;
 
-    document.getElementById("empty").style.display =
+    document.getElementById(
+        "resultCount"
+    ).textContent = count;
+
+
+    document.getElementById(
+        "empty"
+    ).style.display =
         count === 0 ? "block" : "none";
+
 }
 
 
 function sortCars(type) {
 
-    const list = document.getElementById("carList");
+    const list =
+        document.getElementById("carList");
 
-    const cars = Array.from(document.querySelectorAll(".car"));
+    const cars =
+        Array.from(
+            document.querySelectorAll(".car")
+        );
 
-    if (type === "cheap") {
+
+    if(type === "cheap") {
 
         cars.sort((a,b) =>
-            Number(a.dataset.price) - Number(b.dataset.price)
+            Number(a.dataset.price) -
+            Number(b.dataset.price)
         );
 
     }
 
-    if (type === "expensive") {
+
+    if(type === "expensive") {
 
         cars.sort((a,b) =>
-            Number(b.dataset.price) - Number(a.dataset.price)
+            Number(b.dataset.price) -
+            Number(a.dataset.price)
         );
 
     }
 
-    if (type === "new") {
+
+    if(type === "new") {
 
         cars.sort((a,b) =>
-            Number(b.dataset.year) - Number(a.dataset.year)
+            Number(b.dataset.year) -
+            Number(a.dataset.year)
         );
 
     }
 
-    cars.forEach(car => list.appendChild(car));
+
+    cars.forEach(car =>
+        list.appendChild(car)
+    );
+
 }
+
 
 </script>
 
